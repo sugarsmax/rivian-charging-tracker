@@ -138,6 +138,7 @@ def main():
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rivian R1S Charging History</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
         body {{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -160,6 +161,12 @@ def main():
         .subtitle {{
             color: #666;
             margin-bottom: 30px;
+        }}
+        .chart-container {{
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
         }}
         table {{
             width: 100%;
@@ -208,6 +215,10 @@ def main():
         <h1>🔋 Rivian R1S Home Charging History</h1>
         <p class="subtitle">Last 24 months of home charging data</p>
         
+        <div class="chart-container">
+            <canvas id="kwhChart"></canvas>
+        </div>
+        
         <table>
             <thead>
                 <tr>
@@ -248,6 +259,58 @@ def main():
             <p><strong>Y/Y:</strong> Year-over-year comparison of kWh usage vs same month in prior year</p>
         </div>
     </div>
+    
+    <script>
+        const ctx = document.getElementById('kwhChart').getContext('2d');
+        const chartData = {json.dumps(output_data)};
+        
+        new Chart(ctx, {{
+            type: 'bar',
+            data: {{
+                labels: chartData.map(d => d.date),
+                datasets: [{{
+                    label: 'kWh Consumed',
+                    data: chartData.map(d => d.kwh),
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }}]
+            }},
+            options: {{
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {{
+                    legend: {{
+                        display: true,
+                        position: 'top'
+                    }},
+                    title: {{
+                        display: true,
+                        text: 'Monthly Home Charging (kWh)',
+                        font: {{
+                            size: 16,
+                            weight: 'bold'
+                        }}
+                    }}
+                }},
+                scales: {{
+                    y: {{
+                        beginAtZero: true,
+                        title: {{
+                            display: true,
+                            text: 'kWh'
+                        }}
+                    }},
+                    x: {{
+                        title: {{
+                            display: true,
+                            text: 'Month'
+                        }}
+                    }}
+                }}
+            }}
+        }});
+    </script>
 </body>
 </html>"""
     
