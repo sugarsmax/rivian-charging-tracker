@@ -2,6 +2,8 @@
 
 Automated GitHub Pages site that displays 24 months of home charging history, updated automatically on the 3rd of each month.
 
+https://sugarsmax.github.io/rivian-charging-tracker/
+
 ## Quick Start
 
 1. **Set up GitHub repository** - See [GITHUB_PAGES_SETUP.md](GITHUB_PAGES_SETUP.md) for complete instructions
