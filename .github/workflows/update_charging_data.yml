@@ -1,0 +1,37 @@
+name: Update Charging Data
+
+on:
+  schedule:
+    # Run at 2 AM UTC on the 3rd of each month
+    - cron: '0 2 3 * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        pip install requests python-dateutil
+        
+    - name: Run monthly summary
+      env:
+        ELECTRAFI_API_TOKEN: ${{ secrets.ELECTRAFI_API_TOKEN }}
+      run: |
+        python monthly_summary_web.py
+        
+    - name: Commit and push if changed
+      run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'actions@github.com'
+        git add docs/index.html docs/charging_data.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Update charging data - $(date +'%Y-%m-%d')" && git push)
