@@ -263,18 +263,40 @@ def main():
     <script>
         const ctx = document.getElementById('kwhChart').getContext('2d');
         const chartData = {json.dumps(output_data)};
-        
+
+        const monthLabels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        const yearColors = {{
+            '2024': {{ bg: 'rgba(26,107,255,0.7)',   border: '#1A6BFF' }},
+            '2025': {{ bg: 'rgba(136,169,67,0.7)',   border: '#88A943' }},
+            '2026': {{ bg: 'rgba(160,12,124,0.7)',   border: '#A80C7C' }},
+            '2027': {{ bg: 'rgba(219,174,6,0.7)',    border: '#DBAE06' }}
+        }};
+
+        const byYear = {{}};
+        chartData.forEach(d => {{
+            const [yy, mm] = d.date.split('-');
+            const year = '20' + yy;
+            const monthIdx = parseInt(mm) - 1;
+            if (!byYear[year]) byYear[year] = new Array(12).fill(null);
+            byYear[year][monthIdx] = d.kwh;
+        }});
+
+        const datasets = Object.keys(byYear).sort().map(year => {{
+            const c = yearColors[year] || {{ bg: 'rgba(128,128,128,0.7)', border: '#888888' }};
+            return {{
+                label: year,
+                data: byYear[year],
+                backgroundColor: c.bg,
+                borderColor: c.border,
+                borderWidth: 1
+            }};
+        }});
+
         new Chart(ctx, {{
             type: 'bar',
             data: {{
-                labels: chartData.map(d => d.date),
-                datasets: [{{
-                    label: 'kWh Consumed',
-                    data: chartData.map(d => d.kwh),
-                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }}]
+                labels: monthLabels,
+                datasets: datasets
             }},
             options: {{
                 responsive: true,
