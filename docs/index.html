@@ -98,14 +98,6 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>24-03</td>
-                    <td>187.0</td>
-                    <td>$29.92</td>
-                    <td>3,437</td>
-                    <td>$0.16</td>
-                    <td class=""></td>
-                </tr>
-                <tr>
                     <td>24-04</td>
                     <td>292.8</td>
                     <td>$46.85</td>
@@ -199,7 +191,7 @@
                     <td>$34.46</td>
                     <td>9,486</td>
                     <td>$0.16</td>
-                    <td class="positive">+15%</td>
+                    <td class=""></td>
                 </tr>
                 <tr>
                     <td>25-04</td>
@@ -289,11 +281,19 @@
                     <td>$0.16</td>
                     <td class="positive">+16%</td>
                 </tr>
+                <tr>
+                    <td>26-03</td>
+                    <td>165.8</td>
+                    <td>$26.53</td>
+                    <td>14,553</td>
+                    <td>$0.16</td>
+                    <td class="negative">-23%</td>
+                </tr>
             </tbody>
         </table>
         
         <div class="footer">
-            <p><strong>Last Updated:</strong> March 03, 2026 at 15:57 UTC</p>
+            <p><strong>Last Updated:</strong> April 01, 2026 at 20:58 UTC</p>
             <p><strong>Data Source:</strong> ElectraFi API</p>
             <p><strong>Y/Y:</strong> Year-over-year comparison of kWh usage vs same month in prior year</p>
         </div>
@@ -301,7 +301,7 @@
     
     <script>
         const ctx = document.getElementById('kwhChart').getContext('2d');
-        const chartData = [{"date": "24-03", "kwh": 187.0, "cost": 29.92, "odo": 3437.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-04", "kwh": 292.8, "cost": 46.85, "odo": 4129.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-05", "kwh": 247.4, "cost": 39.58, "odo": 4613.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-06", "kwh": 262.7, "cost": 42.03, "odo": 4963.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-07", "kwh": 198.2, "cost": 31.71, "odo": 5629.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-08", "kwh": 175.1, "cost": 28.02, "odo": 5862.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-09", "kwh": 141.7, "cost": 22.67, "odo": 6110.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-10", "kwh": 298.1, "cost": 47.7, "odo": 7015.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-11", "kwh": 305.1, "cost": 48.82, "odo": 7424.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-12", "kwh": 474.3, "cost": 75.89, "odo": 8351.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-01", "kwh": 266.4, "cost": 42.62, "odo": 8661.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-02", "kwh": 298.1, "cost": 47.7, "odo": 9201.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-03", "kwh": 215.4, "cost": 34.46, "odo": 9486.0, "cost_per_kwh": 0.16, "yoy": 15.0}, {"date": "25-04", "kwh": 195.7, "cost": 31.31, "odo": 9733.0, "cost_per_kwh": 0.16, "yoy": -33.0}, {"date": "25-05", "kwh": 230.9, "cost": 36.94, "odo": 10241.0, "cost_per_kwh": 0.16, "yoy": -7.0}, {"date": "25-06", "kwh": 265.7, "cost": 42.51, "odo": 10632.0, "cost_per_kwh": 0.16, "yoy": 1.0}, {"date": "25-07", "kwh": 129.4, "cost": 20.7, "odo": 10805.0, "cost_per_kwh": 0.16, "yoy": -35.0}, {"date": "25-08", "kwh": 310.6, "cost": 49.7, "odo": 11377.0, "cost_per_kwh": 0.16, "yoy": 77.0}, {"date": "25-09", "kwh": 190.2, "cost": 30.43, "odo": 11676.0, "cost_per_kwh": 0.16, "yoy": 34.0}, {"date": "25-10", "kwh": 346.1, "cost": 55.38, "odo": 12387.0, "cost_per_kwh": 0.16, "yoy": 16.0}, {"date": "25-11", "kwh": 257.4, "cost": 41.18, "odo": 12668.0, "cost_per_kwh": 0.16, "yoy": -16.0}, {"date": "25-12", "kwh": 476.0, "cost": 76.16, "odo": 13626.0, "cost_per_kwh": 0.16, "yoy": 0.0}, {"date": "26-01", "kwh": 337.6, "cost": 54.02, "odo": 13930.0, "cost_per_kwh": 0.16, "yoy": 27.0}, {"date": "26-02", "kwh": 346.3, "cost": 55.41, "odo": 14314.0, "cost_per_kwh": 0.16, "yoy": 16.0}];
+        const chartData = [{"date": "24-04", "kwh": 292.8, "cost": 46.85, "odo": 4129.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-05", "kwh": 247.4, "cost": 39.58, "odo": 4613.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-06", "kwh": 262.7, "cost": 42.03, "odo": 4963.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-07", "kwh": 198.2, "cost": 31.71, "odo": 5629.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-08", "kwh": 175.1, "cost": 28.02, "odo": 5862.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-09", "kwh": 141.7, "cost": 22.67, "odo": 6110.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-10", "kwh": 298.1, "cost": 47.7, "odo": 7015.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-11", "kwh": 305.1, "cost": 48.82, "odo": 7424.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-12", "kwh": 474.3, "cost": 75.89, "odo": 8351.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-01", "kwh": 266.4, "cost": 42.62, "odo": 8661.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-02", "kwh": 298.1, "cost": 47.7, "odo": 9201.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-03", "kwh": 215.4, "cost": 34.46, "odo": 9486.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-04", "kwh": 195.7, "cost": 31.31, "odo": 9733.0, "cost_per_kwh": 0.16, "yoy": -33.0}, {"date": "25-05", "kwh": 230.9, "cost": 36.94, "odo": 10241.0, "cost_per_kwh": 0.16, "yoy": -7.0}, {"date": "25-06", "kwh": 265.7, "cost": 42.51, "odo": 10632.0, "cost_per_kwh": 0.16, "yoy": 1.0}, {"date": "25-07", "kwh": 129.4, "cost": 20.7, "odo": 10805.0, "cost_per_kwh": 0.16, "yoy": -35.0}, {"date": "25-08", "kwh": 310.6, "cost": 49.7, "odo": 11377.0, "cost_per_kwh": 0.16, "yoy": 77.0}, {"date": "25-09", "kwh": 190.2, "cost": 30.43, "odo": 11676.0, "cost_per_kwh": 0.16, "yoy": 34.0}, {"date": "25-10", "kwh": 346.1, "cost": 55.38, "odo": 12387.0, "cost_per_kwh": 0.16, "yoy": 16.0}, {"date": "25-11", "kwh": 257.4, "cost": 41.18, "odo": 12668.0, "cost_per_kwh": 0.16, "yoy": -16.0}, {"date": "25-12", "kwh": 476.0, "cost": 76.16, "odo": 13626.0, "cost_per_kwh": 0.16, "yoy": 0.0}, {"date": "26-01", "kwh": 337.6, "cost": 54.02, "odo": 13930.0, "cost_per_kwh": 0.16, "yoy": 27.0}, {"date": "26-02", "kwh": 346.3, "cost": 55.41, "odo": 14314.0, "cost_per_kwh": 0.16, "yoy": 16.0}, {"date": "26-03", "kwh": 165.8, "cost": 26.53, "odo": 14553.0, "cost_per_kwh": 0.16, "yoy": -23.0}];
 
         const monthLabels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         const yearColors = {
