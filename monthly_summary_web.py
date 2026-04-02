@@ -233,7 +233,7 @@ def main():
             <tbody>
 """
     
-    for row in output_data:
+    for row in reversed(output_data):
         yoy_class = ""
         yoy_text = ""
         if row["yoy"] is not None:
