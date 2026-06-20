@@ -53,12 +53,21 @@ def analyze_month(data):
     }
 
 
+# Manual overrides for months where the ElectraFi API returned missing/zero kWh data.
+# Values are applied only when the API result is absent or reports zero kWh.
+# Format: "YY-MM" -> {kwh, cost, odo, cost_per_kwh}
+MANUAL_OVERRIDES = {
+    "26-04": {"kwh": 297.3, "cost": 47.57, "odo": 14910.0, "cost_per_kwh": 0.16},
+    "26-05": {"kwh": 232.9, "cost": 37.26, "odo": 15168.0, "cost_per_kwh": 0.16},
+}
+
+
 def main():
     api_token = os.getenv("ELECTRAFI_API_TOKEN")
     if not api_token:
         print("ERROR: ELECTRAFI_API_TOKEN not set")
         sys.exit(1)
-    
+
     # Calculate last 24 months
     today = date.today()
     months = []
@@ -93,7 +102,15 @@ def main():
                 monthly_data[m["label"]] = result
         except Exception as e:
             print(f"Error fetching {m['label']}: {e}")
-    
+
+    # Apply manual overrides for months where the API returned missing/zero kWh
+    for label, override in MANUAL_OVERRIDES.items():
+        api_result = monthly_data.get(label)
+        if api_result is None or api_result["kwh"] == 0:
+            monthly_data[label] = override
+            source = "missing" if api_result is None else "zero kWh"
+            print(f"Applied manual override for {label} (API returned {source})")
+
     # Prepare data with Y/Y comparisons
     output_data = []
     for m in months:
