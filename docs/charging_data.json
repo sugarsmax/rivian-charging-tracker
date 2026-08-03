@@ -1,14 +1,6 @@
 {
-  "last_updated": "2026-07-03 05:50:36 UTC",
+  "last_updated": "2026-08-03 05:38:46 UTC",
   "data": [
-    {
-      "date": "24-07",
-      "kwh": 198.2,
-      "cost": 31.71,
-      "odo": 5629.0,
-      "cost_per_kwh": 0.16,
-      "yoy": null
-    },
     {
       "date": "24-08",
       "kwh": 175.1,
@@ -103,7 +95,7 @@
       "cost": 20.7,
       "odo": 10805.0,
       "cost_per_kwh": 0.16,
-      "yoy": -35.0
+      "yoy": null
     },
     {
       "date": "25-08",
