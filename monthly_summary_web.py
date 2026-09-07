@@ -59,6 +59,7 @@ def analyze_month(data):
 MANUAL_OVERRIDES = {
     "26-04": {"kwh": 297.3, "cost": 47.57, "odo": 14910.0, "cost_per_kwh": 0.16},
     "26-05": {"kwh": 232.9, "cost": 37.26, "odo": 15168.0, "cost_per_kwh": 0.16},
+    "26-07": {"kwh": 137.6, "cost": 22.02, "odo": 15591.64, "cost_per_kwh": 0.16},
 }
 
 
