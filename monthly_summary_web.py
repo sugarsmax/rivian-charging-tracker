@@ -68,11 +68,16 @@ def main():
         print("ERROR: ELECTRAFI_API_TOKEN not set")
         sys.exit(1)
 
-    # Calculate last 24 months
+    # Calculate last 24 months + prior month (for backfill)
     today = date.today()
     months = []
     
-    for i in range(24, 0, -1):
+    # Always include current month and prior month
+    for i in range(25, -1, -1):
+        if i == 25:
+            # Prior month (extra backfill)
+            continue
+        
         month_date = today - relativedelta(months=i)
         first_day = date(month_date.year, month_date.month, 1)
         
@@ -88,6 +93,25 @@ def main():
             "first_day": first_day.strftime("%Y-%m-%d"),
             "last_day": last_day.strftime("%Y-%m-%d"),
             "label": first_day.strftime("%y-%m")
+        })
+    
+    # Explicitly add prior month for backfill
+    prior_month_date = today - relativedelta(months=1)
+    prior_first_day = date(prior_month_date.year, prior_month_date.month, 1)
+    if prior_month_date.month == 12:
+        prior_last_day = date(prior_month_date.year + 1, 1, 1) - relativedelta(days=1)
+    else:
+        prior_last_day = date(prior_month_date.year, prior_month_date.month + 1, 1) - relativedelta(days=1)
+    
+    prior_month_label = prior_first_day.strftime("%y-%m")
+    # Add prior month if not already in the list
+    if not any(m["label"] == prior_month_label for m in months):
+        months.insert(0, {
+            "year": prior_month_date.year,
+            "month": prior_month_date.month,
+            "first_day": prior_first_day.strftime("%Y-%m-%d"),
+            "last_day": prior_last_day.strftime("%Y-%m-%d"),
+            "label": prior_month_label
         })
     
     # Fetch data for all months
