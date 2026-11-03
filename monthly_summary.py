@@ -5,10 +5,11 @@ Simple monthly charging summary with year-over-year comparisons
 
 import os
 import sys
-from datetime import date
-from dateutil.relativedelta import relativedelta
+from datetime import date, datetime
 import requests
 import json
+
+from billing_periods import build_billing_periods
 
 try:
     from dotenv import load_dotenv
@@ -67,30 +68,10 @@ def main():
     
     output_file = "charging_history.txt"
     
-    # Calculate last 24 months
     today = date.today()
-    months = []
-    
-    for i in range(24, 0, -1):
-        month_date = today - relativedelta(months=i)
-        first_day = date(month_date.year, month_date.month, 1)
-        
-        # Last day of month
-        if month_date.month == 12:
-            last_day = date(month_date.year + 1, 1, 1) - relativedelta(days=1)
-        else:
-            last_day = date(month_date.year, month_date.month + 1, 1) - relativedelta(days=1)
-        
-        months.append({
-            "year": month_date.year,
-            "month": month_date.month,
-            "first_day": first_day.strftime("%Y-%m-%d"),
-            "last_day": last_day.strftime("%Y-%m-%d"),
-            "label": first_day.strftime("%y-%m")
-        })
-    
-    # Fetch data for all months
-    print("Fetching 24 months of charging data...")
+    months = build_billing_periods(today, count=24)
+
+    print("Fetching 24 billing periods of charging data (28th–27th)...")
     monthly_data = {}
     
     for m in months:
@@ -105,7 +86,6 @@ def main():
     # Open file in append mode
     with open(output_file, 'a') as f:
         # Write header with timestamp
-        from datetime import datetime
         f.write(f"\n{'='*60}\n")
         f.write(f"Report generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"{'='*60}\n")

@@ -8,8 +8,9 @@ import argparse
 import json
 import sys
 from datetime import datetime, date
-from dateutil.relativedelta import relativedelta
 from typing import Optional, Dict, Any, List
+
+from billing_periods import bounds_for_month_arg, last_complete_bounds
 
 try:
     import requests
@@ -167,17 +168,9 @@ class ChargingAnalyzer:
         return details
 
 
-def get_last_complete_month() -> tuple[str, str]:
-    """Get the first and last day of the previous month."""
-    today = date.today()
-    # First day of current month
-    first_of_this_month = date(today.year, today.month, 1)
-    # Last day of previous month
-    last_of_last_month = first_of_this_month - relativedelta(days=1)
-    # First day of previous month
-    first_of_last_month = date(last_of_last_month.year, last_of_last_month.month, 1)
-    
-    return first_of_last_month.strftime("%Y-%m-%d"), last_of_last_month.strftime("%Y-%m-%d")
+def get_last_complete_billing_period() -> tuple[str, str]:
+    """Get the date range for the last complete utility billing period (28th–27th)."""
+    return last_complete_bounds(date.today())
 
 
 def main():
@@ -203,11 +196,11 @@ def main():
     parser.add_argument(
         "--last-month",
         action="store_true",
-        help="Analyze last complete month",
+        help="Analyze last complete billing period (28th through 27th)",
     )
     parser.add_argument(
         "--month",
-        help="Analyze specific month (YYYY-MM, e.g., 2026-01)",
+        help="Billing period ending in month YYYY-MM (e.g., 2026-01 = Dec 28–Jan 27)",
     )
     parser.add_argument(
         "--home-only",
@@ -235,20 +228,13 @@ def main():
     
     # Determine date range
     if args.last_month:
-        date_from, date_to = get_last_complete_month()
-        print(f"Analyzing last complete month: {date_from} to {date_to}\n")
+        date_from, date_to = get_last_complete_billing_period()
+        print(f"Analyzing last complete billing period: {date_from} to {date_to}\n")
     elif args.month:
         try:
             year, month = map(int, args.month.split("-"))
-            first_day = date(year, month, 1)
-            # Last day of the month
-            if month == 12:
-                last_day = date(year + 1, 1, 1) - relativedelta(days=1)
-            else:
-                last_day = date(year, month + 1, 1) - relativedelta(days=1)
-            date_from = first_day.strftime("%Y-%m-%d")
-            date_to = last_day.strftime("%Y-%m-%d")
-            print(f"Analyzing {args.month}: {date_from} to {date_to}\n")
+            date_from, date_to = bounds_for_month_arg(year, month)
+            print(f"Analyzing billing period ending {args.month}: {date_from} to {date_to}\n")
         except ValueError:
             print("ERROR: Invalid month format. Use YYYY-MM (e.g., 2026-01)")
             sys.exit(1)
