@@ -7,8 +7,9 @@ import os
 import sys
 import json
 from datetime import date, datetime
-from dateutil.relativedelta import relativedelta
 import requests
+
+from billing_periods import build_billing_periods
 
 
 def get_charges(api_token, date_from, date_to):
@@ -53,12 +54,13 @@ def analyze_month(data):
     }
 
 
-# Manual overrides for months where the ElectraFi API returned missing/zero kWh data.
+# Manual overrides for billing periods where the ElectraFi API returned missing/zero kWh.
+# Labels are YY-MM of the period *ending* month (28th–27th cycle).
 # Values are applied only when the API result is absent or reports zero kWh.
-# Format: "YY-MM" -> {kwh, cost, odo, cost_per_kwh}
 MANUAL_OVERRIDES = {
     "26-04": {"kwh": 297.3, "cost": 47.57, "odo": 14910.0, "cost_per_kwh": 0.16},
     "26-05": {"kwh": 232.9, "cost": 37.26, "odo": 15168.0, "cost_per_kwh": 0.16},
+    "26-07": {"kwh": 137.6, "cost": 22.02, "odo": 15591.64, "cost_per_kwh": 0.16},
 }
 
 
@@ -68,54 +70,10 @@ def main():
         print("ERROR: ELECTRAFI_API_TOKEN not set")
         sys.exit(1)
 
-    # Calculate last 24 months + prior month (for backfill)
     today = date.today()
-    months = []
-    
-    # Always include current month and prior month
-    for i in range(25, -1, -1):
-        if i == 25:
-            # Prior month (extra backfill)
-            continue
-        
-        month_date = today - relativedelta(months=i)
-        first_day = date(month_date.year, month_date.month, 1)
-        
-        # Last day of month
-        if month_date.month == 12:
-            last_day = date(month_date.year + 1, 1, 1) - relativedelta(days=1)
-        else:
-            last_day = date(month_date.year, month_date.month + 1, 1) - relativedelta(days=1)
-        
-        months.append({
-            "year": month_date.year,
-            "month": month_date.month,
-            "first_day": first_day.strftime("%Y-%m-%d"),
-            "last_day": last_day.strftime("%Y-%m-%d"),
-            "label": first_day.strftime("%y-%m")
-        })
-    
-    # Explicitly add prior month for backfill
-    prior_month_date = today - relativedelta(months=1)
-    prior_first_day = date(prior_month_date.year, prior_month_date.month, 1)
-    if prior_month_date.month == 12:
-        prior_last_day = date(prior_month_date.year + 1, 1, 1) - relativedelta(days=1)
-    else:
-        prior_last_day = date(prior_month_date.year, prior_month_date.month + 1, 1) - relativedelta(days=1)
-    
-    prior_month_label = prior_first_day.strftime("%y-%m")
-    # Add prior month if not already in the list
-    if not any(m["label"] == prior_month_label for m in months):
-        months.insert(0, {
-            "year": prior_month_date.year,
-            "month": prior_month_date.month,
-            "first_day": prior_first_day.strftime("%Y-%m-%d"),
-            "last_day": prior_last_day.strftime("%Y-%m-%d"),
-            "label": prior_month_label
-        })
-    
-    # Fetch data for all months
-    print("Fetching 24 months of charging data...")
+    months = build_billing_periods(today, count=24)
+
+    print("Fetching 24 billing periods of charging data (28th–27th)...")
     monthly_data = {}
     
     for m in months:
@@ -155,6 +113,7 @@ def main():
         
         output_data.append({
             "date": label,
+            "period_range": m["period_range"],
             "kwh": data["kwh"],
             "cost": data["cost"],
             "odo": data["odo"],
@@ -254,7 +213,7 @@ def main():
 <body>
     <div class="container">
         <h1>🔋 Rivian R1S Home Charging History</h1>
-        <p class="subtitle">Last 24 months of home charging data</p>
+        <p class="subtitle">Last 24 billing periods (28th – 27th) of home charging data</p>
         
         <div class="chart-container">
             <canvas id="kwhChart"></canvas>
@@ -263,7 +222,7 @@ def main():
         <table>
             <thead>
                 <tr>
-                    <th>Date</th>
+                    <th>Billing period</th>
                     <th>kWh</th>
                     <th>Cost</th>
                     <th>Odometer</th>
@@ -282,7 +241,7 @@ def main():
             yoy_text = f"{row['yoy']:+.0f}%"
         
         html += f"""                <tr>
-                    <td>{row['date']}</td>
+                    <td>{row['date']}<br><small style="color:#666">{row['period_range']}</small></td>
                     <td>{row['kwh']:.1f}</td>
                     <td>${row['cost']:.2f}</td>
                     <td>{row['odo']:,.0f}</td>
@@ -297,7 +256,8 @@ def main():
         <div class="footer">
             <p><strong>Last Updated:</strong> {datetime.now().strftime("%B %d, %Y at %H:%M UTC")}</p>
             <p><strong>Data Source:</strong> ElectraFi API</p>
-            <p><strong>Y/Y:</strong> Year-over-year comparison of kWh usage vs same month in prior year</p>
+            <p><strong>Billing cycle:</strong> Each period runs from the 28th through the 27th of the following month (labeled by ending month).</p>
+            <p><strong>Y/Y:</strong> Year-over-year kWh vs the same billing period one year earlier</p>
         </div>
     </div>
     
@@ -349,7 +309,7 @@ def main():
                     }},
                     title: {{
                         display: true,
-                        text: 'Monthly Home Charging (kWh)',
+                        text: 'Home Charging by Billing Period (kWh)',
                         font: {{
                             size: 16,
                             weight: 'bold'
@@ -367,7 +327,7 @@ def main():
                     x: {{
                         title: {{
                             display: true,
-                            text: 'Month'
+                            text: 'Period ending month'
                         }}
                     }}
                 }}

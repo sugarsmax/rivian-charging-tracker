@@ -1,6 +1,6 @@
 # Rivian R1S Charging Tracker
 
-Automated GitHub Pages site that displays 24 months of home charging history, updated automatically on the 3rd of each month.
+Automated GitHub Pages site that displays home charging history by utility billing period (28th–27th), updated automatically on the 3rd of each month.
 
 https://sugarsmax.github.io/rivian-charging-tracker/
 
@@ -21,7 +21,7 @@ https://sugarsmax.github.io/rivian-charging-tracker/
 
 ## What This Does
 
-- **GitHub Pages Site**: Automatically updates on the 3rd of each month with 24 months of charging history
+- **GitHub Pages Site**: Automatically updates on the 3rd of each month with ~24 billing periods of charging history
 - **Real-Time Queries**: Query current vehicle status (battery, charging, location, temperature)
 - **Historical Analysis**: Deep dive into charging patterns for any date range
 - **Vehicle Control**: Send commands to your vehicle (HVAC, charging, etc.)
@@ -65,10 +65,10 @@ python3 electrafi_query.py hvac-start
 
 ### Historical Analysis
 ```bash
-# Analyze January 2026
+# Billing period ending January 2026 (Dec 28 – Jan 27)
 python3 analyze_charging.py --month 2026-01
 
-# Last complete month
+# Last complete billing period
 python3 analyze_charging.py --last-month
 
 # 24-month summary with Y/Y

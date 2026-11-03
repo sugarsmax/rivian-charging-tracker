@@ -1,32 +1,27 @@
 {
-  "last_updated": "2026-11-03 08:58:13 UTC",
+  "last_updated": "2026-11-03 10:07:55 UTC",
   "data": [
     {
-      "date": "24-11",
-      "kwh": 305.1,
-      "cost": 48.82,
-      "odo": 7424.0,
-      "cost_per_kwh": 0.16,
-      "yoy": null
-    },
-    {
       "date": "24-12",
-      "kwh": 474.3,
-      "cost": 75.89,
-      "odo": 8351.0,
+      "period_range": "Nov 28 \u2013 Dec 27, 2024",
+      "kwh": 405.6,
+      "cost": 64.9,
+      "odo": 8175.0,
       "cost_per_kwh": 0.16,
       "yoy": null
     },
     {
       "date": "25-01",
-      "kwh": 266.4,
-      "cost": 42.62,
+      "period_range": "Dec 28, 2024 \u2013 Jan 27, 2025",
+      "kwh": 387.0,
+      "cost": 61.92,
       "odo": 8661.0,
       "cost_per_kwh": 0.16,
       "yoy": null
     },
     {
       "date": "25-02",
+      "period_range": "Jan 28 \u2013 Feb 27, 2025",
       "kwh": 298.1,
       "cost": 47.7,
       "odo": 9201.0,
@@ -35,6 +30,7 @@
     },
     {
       "date": "25-03",
+      "period_range": "Feb 28 \u2013 Mar 27, 2025",
       "kwh": 215.4,
       "cost": 34.46,
       "odo": 9486.0,
@@ -43,30 +39,34 @@
     },
     {
       "date": "25-04",
-      "kwh": 195.7,
-      "cost": 31.31,
-      "odo": 9733.0,
+      "period_range": "Mar 28 \u2013 Apr 27, 2025",
+      "kwh": 167.3,
+      "cost": 26.77,
+      "odo": 9703.0,
       "cost_per_kwh": 0.16,
       "yoy": null
     },
     {
       "date": "25-05",
-      "kwh": 230.9,
-      "cost": 36.94,
-      "odo": 10241.0,
+      "period_range": "Apr 28 \u2013 May 27, 2025",
+      "kwh": 246.2,
+      "cost": 39.39,
+      "odo": 10239.0,
       "cost_per_kwh": 0.16,
       "yoy": null
     },
     {
       "date": "25-06",
-      "kwh": 265.7,
-      "cost": 42.51,
+      "period_range": "May 28 \u2013 Jun 27, 2025",
+      "kwh": 278.8,
+      "cost": 44.61,
       "odo": 10632.0,
       "cost_per_kwh": 0.16,
       "yoy": null
     },
     {
       "date": "25-07",
+      "period_range": "Jun 28 \u2013 Jul 27, 2025",
       "kwh": 129.4,
       "cost": 20.7,
       "odo": 10805.0,
@@ -75,115 +75,147 @@
     },
     {
       "date": "25-08",
-      "kwh": 310.6,
-      "cost": 49.7,
-      "odo": 11377.0,
+      "period_range": "Jul 28 \u2013 Aug 27, 2025",
+      "kwh": 258.9,
+      "cost": 41.42,
+      "odo": 11296.0,
       "cost_per_kwh": 0.16,
       "yoy": null
     },
     {
       "date": "25-09",
-      "kwh": 190.2,
-      "cost": 30.43,
-      "odo": 11676.0,
+      "period_range": "Aug 28 \u2013 Sep 27, 2025",
+      "kwh": 201.6,
+      "cost": 32.26,
+      "odo": 11611.0,
       "cost_per_kwh": 0.16,
       "yoy": null
     },
     {
       "date": "25-10",
-      "kwh": 346.1,
-      "cost": 55.38,
-      "odo": 12387.0,
+      "period_range": "Sep 28 \u2013 Oct 27, 2025",
+      "kwh": 327.1,
+      "cost": 52.34,
+      "odo": 12312.0,
       "cost_per_kwh": 0.16,
       "yoy": null
     },
     {
       "date": "25-11",
-      "kwh": 257.4,
-      "cost": 41.18,
+      "period_range": "Oct 28 \u2013 Nov 27, 2025",
+      "kwh": 316.7,
+      "cost": 50.67,
       "odo": 12668.0,
       "cost_per_kwh": 0.16,
-      "yoy": -16.0
+      "yoy": null
     },
     {
       "date": "25-12",
-      "kwh": 476.0,
-      "cost": 76.16,
-      "odo": 13626.0,
+      "period_range": "Nov 28 \u2013 Dec 27, 2025",
+      "kwh": 366.1,
+      "cost": 58.58,
+      "odo": 13136.0,
       "cost_per_kwh": 0.16,
-      "yoy": 0.0
+      "yoy": -10.0
     },
     {
       "date": "26-01",
-      "kwh": 337.6,
-      "cost": 54.02,
-      "odo": 13930.0,
+      "period_range": "Dec 28, 2025 \u2013 Jan 27, 2026",
+      "kwh": 399.6,
+      "cost": 63.94,
+      "odo": 13892.0,
       "cost_per_kwh": 0.16,
-      "yoy": 27.0
+      "yoy": 3.0
     },
     {
       "date": "26-02",
-      "kwh": 346.3,
-      "cost": 55.41,
+      "period_range": "Jan 28 \u2013 Feb 27, 2026",
+      "kwh": 394.2,
+      "cost": 63.07,
       "odo": 14314.0,
       "cost_per_kwh": 0.16,
-      "yoy": 16.0
+      "yoy": 32.0
     },
     {
       "date": "26-03",
+      "period_range": "Feb 28 \u2013 Mar 27, 2026",
       "kwh": 165.8,
       "cost": 26.53,
-      "odo": 14553.0,
+      "odo": 14477.0,
       "cost_per_kwh": 0.16,
       "yoy": -23.0
     },
     {
       "date": "26-04",
+      "period_range": "Mar 28 \u2013 Apr 27, 2026",
       "kwh": 297.3,
       "cost": 47.57,
       "odo": 14910.0,
       "cost_per_kwh": 0.16,
-      "yoy": 52.0
+      "yoy": 78.0
     },
     {
       "date": "26-05",
+      "period_range": "Apr 28 \u2013 May 27, 2026",
       "kwh": 232.9,
       "cost": 37.26,
       "odo": 15168.0,
       "cost_per_kwh": 0.16,
-      "yoy": 1.0
+      "yoy": -5.0
     },
     {
       "date": "26-06",
+      "period_range": "May 28 \u2013 Jun 27, 2026",
       "kwh": 73.7,
       "cost": 11.79,
       "odo": 15267.0,
       "cost_per_kwh": 0.16,
-      "yoy": -72.0
+      "yoy": -74.0
+    },
+    {
+      "date": "26-07",
+      "period_range": "Jun 28 \u2013 Jul 27, 2026",
+      "kwh": 137.6,
+      "cost": 22.02,
+      "odo": 15591.64,
+      "cost_per_kwh": 0.16,
+      "yoy": 6.0
     },
     {
       "date": "26-08",
-      "kwh": 126.1,
-      "cost": 20.18,
-      "odo": 15980.0,
+      "period_range": "Jul 28 \u2013 Aug 27, 2026",
+      "kwh": 114.0,
+      "cost": 18.24,
+      "odo": 15940.0,
       "cost_per_kwh": 0.16,
-      "yoy": -59.0
+      "yoy": -56.0
     },
     {
       "date": "26-09",
-      "kwh": 360.1,
-      "cost": 57.62,
-      "odo": 16570.0,
+      "period_range": "Aug 28 \u2013 Sep 27, 2026",
+      "kwh": 344.1,
+      "cost": 55.06,
+      "odo": 16519.0,
       "cost_per_kwh": 0.16,
-      "yoy": 89.0
+      "yoy": 71.0
     },
     {
       "date": "26-10",
-      "kwh": 391.1,
-      "cost": 62.58,
+      "period_range": "Sep 28 \u2013 Oct 27, 2026",
+      "kwh": 371.8,
+      "cost": 59.49,
+      "odo": 17163.0,
+      "cost_per_kwh": 0.16,
+      "yoy": 14.0
+    },
+    {
+      "date": "26-11",
+      "period_range": "Oct 28 \u2013 Nov 27, 2026",
+      "kwh": 47.4,
+      "cost": 7.58,
       "odo": 17212.0,
       "cost_per_kwh": 0.16,
-      "yoy": 13.0
+      "yoy": -85.0
     }
   ]
 }

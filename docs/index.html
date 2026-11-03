@@ -79,7 +79,7 @@
 <body>
     <div class="container">
         <h1>🔋 Rivian R1S Home Charging History</h1>
-        <p class="subtitle">Last 24 months of home charging data</p>
+        <p class="subtitle">Last 24 billing periods (28th – 27th) of home charging data</p>
         
         <div class="chart-container">
             <canvas id="kwhChart"></canvas>
@@ -88,7 +88,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Date</th>
+                    <th>Billing period</th>
                     <th>kWh</th>
                     <th>Cost</th>
                     <th>Odometer</th>
@@ -98,119 +98,135 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>26-10</td>
-                    <td>391.1</td>
-                    <td>$62.58</td>
+                    <td>26-11<br><small style="color:#666">Oct 28 – Nov 27, 2026</small></td>
+                    <td>47.4</td>
+                    <td>$7.58</td>
                     <td>17,212</td>
                     <td>$0.16</td>
-                    <td class="positive">+13%</td>
+                    <td class="negative">-85%</td>
                 </tr>
                 <tr>
-                    <td>26-09</td>
-                    <td>360.1</td>
-                    <td>$57.62</td>
-                    <td>16,570</td>
+                    <td>26-10<br><small style="color:#666">Sep 28 – Oct 27, 2026</small></td>
+                    <td>371.8</td>
+                    <td>$59.49</td>
+                    <td>17,163</td>
                     <td>$0.16</td>
-                    <td class="positive">+89%</td>
+                    <td class="positive">+14%</td>
                 </tr>
                 <tr>
-                    <td>26-08</td>
-                    <td>126.1</td>
-                    <td>$20.18</td>
-                    <td>15,980</td>
+                    <td>26-09<br><small style="color:#666">Aug 28 – Sep 27, 2026</small></td>
+                    <td>344.1</td>
+                    <td>$55.06</td>
+                    <td>16,519</td>
                     <td>$0.16</td>
-                    <td class="negative">-59%</td>
+                    <td class="positive">+71%</td>
                 </tr>
                 <tr>
-                    <td>26-06</td>
+                    <td>26-08<br><small style="color:#666">Jul 28 – Aug 27, 2026</small></td>
+                    <td>114.0</td>
+                    <td>$18.24</td>
+                    <td>15,940</td>
+                    <td>$0.16</td>
+                    <td class="negative">-56%</td>
+                </tr>
+                <tr>
+                    <td>26-07<br><small style="color:#666">Jun 28 – Jul 27, 2026</small></td>
+                    <td>137.6</td>
+                    <td>$22.02</td>
+                    <td>15,592</td>
+                    <td>$0.16</td>
+                    <td class="positive">+6%</td>
+                </tr>
+                <tr>
+                    <td>26-06<br><small style="color:#666">May 28 – Jun 27, 2026</small></td>
                     <td>73.7</td>
                     <td>$11.79</td>
                     <td>15,267</td>
                     <td>$0.16</td>
-                    <td class="negative">-72%</td>
+                    <td class="negative">-74%</td>
                 </tr>
                 <tr>
-                    <td>26-05</td>
+                    <td>26-05<br><small style="color:#666">Apr 28 – May 27, 2026</small></td>
                     <td>232.9</td>
                     <td>$37.26</td>
                     <td>15,168</td>
                     <td>$0.16</td>
-                    <td class="positive">+1%</td>
+                    <td class="negative">-5%</td>
                 </tr>
                 <tr>
-                    <td>26-04</td>
+                    <td>26-04<br><small style="color:#666">Mar 28 – Apr 27, 2026</small></td>
                     <td>297.3</td>
                     <td>$47.57</td>
                     <td>14,910</td>
                     <td>$0.16</td>
-                    <td class="positive">+52%</td>
+                    <td class="positive">+78%</td>
                 </tr>
                 <tr>
-                    <td>26-03</td>
+                    <td>26-03<br><small style="color:#666">Feb 28 – Mar 27, 2026</small></td>
                     <td>165.8</td>
                     <td>$26.53</td>
-                    <td>14,553</td>
+                    <td>14,477</td>
                     <td>$0.16</td>
                     <td class="negative">-23%</td>
                 </tr>
                 <tr>
-                    <td>26-02</td>
-                    <td>346.3</td>
-                    <td>$55.41</td>
+                    <td>26-02<br><small style="color:#666">Jan 28 – Feb 27, 2026</small></td>
+                    <td>394.2</td>
+                    <td>$63.07</td>
                     <td>14,314</td>
                     <td>$0.16</td>
-                    <td class="positive">+16%</td>
+                    <td class="positive">+32%</td>
                 </tr>
                 <tr>
-                    <td>26-01</td>
-                    <td>337.6</td>
-                    <td>$54.02</td>
-                    <td>13,930</td>
+                    <td>26-01<br><small style="color:#666">Dec 28, 2025 – Jan 27, 2026</small></td>
+                    <td>399.6</td>
+                    <td>$63.94</td>
+                    <td>13,892</td>
                     <td>$0.16</td>
-                    <td class="positive">+27%</td>
+                    <td class="positive">+3%</td>
                 </tr>
                 <tr>
-                    <td>25-12</td>
-                    <td>476.0</td>
-                    <td>$76.16</td>
-                    <td>13,626</td>
+                    <td>25-12<br><small style="color:#666">Nov 28 – Dec 27, 2025</small></td>
+                    <td>366.1</td>
+                    <td>$58.58</td>
+                    <td>13,136</td>
                     <td>$0.16</td>
-                    <td class="positive">+0%</td>
+                    <td class="negative">-10%</td>
                 </tr>
                 <tr>
-                    <td>25-11</td>
-                    <td>257.4</td>
-                    <td>$41.18</td>
+                    <td>25-11<br><small style="color:#666">Oct 28 – Nov 27, 2025</small></td>
+                    <td>316.7</td>
+                    <td>$50.67</td>
                     <td>12,668</td>
                     <td>$0.16</td>
-                    <td class="negative">-16%</td>
+                    <td class=""></td>
                 </tr>
                 <tr>
-                    <td>25-10</td>
-                    <td>346.1</td>
-                    <td>$55.38</td>
-                    <td>12,387</td>
+                    <td>25-10<br><small style="color:#666">Sep 28 – Oct 27, 2025</small></td>
+                    <td>327.1</td>
+                    <td>$52.34</td>
+                    <td>12,312</td>
                     <td>$0.16</td>
                     <td class=""></td>
                 </tr>
                 <tr>
-                    <td>25-09</td>
-                    <td>190.2</td>
-                    <td>$30.43</td>
-                    <td>11,676</td>
+                    <td>25-09<br><small style="color:#666">Aug 28 – Sep 27, 2025</small></td>
+                    <td>201.6</td>
+                    <td>$32.26</td>
+                    <td>11,611</td>
                     <td>$0.16</td>
                     <td class=""></td>
                 </tr>
                 <tr>
-                    <td>25-08</td>
-                    <td>310.6</td>
-                    <td>$49.70</td>
-                    <td>11,377</td>
+                    <td>25-08<br><small style="color:#666">Jul 28 – Aug 27, 2025</small></td>
+                    <td>258.9</td>
+                    <td>$41.42</td>
+                    <td>11,296</td>
                     <td>$0.16</td>
                     <td class=""></td>
                 </tr>
                 <tr>
-                    <td>25-07</td>
+                    <td>25-07<br><small style="color:#666">Jun 28 – Jul 27, 2025</small></td>
                     <td>129.4</td>
                     <td>$20.70</td>
                     <td>10,805</td>
@@ -218,31 +234,31 @@
                     <td class=""></td>
                 </tr>
                 <tr>
-                    <td>25-06</td>
-                    <td>265.7</td>
-                    <td>$42.51</td>
+                    <td>25-06<br><small style="color:#666">May 28 – Jun 27, 2025</small></td>
+                    <td>278.8</td>
+                    <td>$44.61</td>
                     <td>10,632</td>
                     <td>$0.16</td>
                     <td class=""></td>
                 </tr>
                 <tr>
-                    <td>25-05</td>
-                    <td>230.9</td>
-                    <td>$36.94</td>
-                    <td>10,241</td>
+                    <td>25-05<br><small style="color:#666">Apr 28 – May 27, 2025</small></td>
+                    <td>246.2</td>
+                    <td>$39.39</td>
+                    <td>10,239</td>
                     <td>$0.16</td>
                     <td class=""></td>
                 </tr>
                 <tr>
-                    <td>25-04</td>
-                    <td>195.7</td>
-                    <td>$31.31</td>
-                    <td>9,733</td>
+                    <td>25-04<br><small style="color:#666">Mar 28 – Apr 27, 2025</small></td>
+                    <td>167.3</td>
+                    <td>$26.77</td>
+                    <td>9,703</td>
                     <td>$0.16</td>
                     <td class=""></td>
                 </tr>
                 <tr>
-                    <td>25-03</td>
+                    <td>25-03<br><small style="color:#666">Feb 28 – Mar 27, 2025</small></td>
                     <td>215.4</td>
                     <td>$34.46</td>
                     <td>9,486</td>
@@ -250,7 +266,7 @@
                     <td class=""></td>
                 </tr>
                 <tr>
-                    <td>25-02</td>
+                    <td>25-02<br><small style="color:#666">Jan 28 – Feb 27, 2025</small></td>
                     <td>298.1</td>
                     <td>$47.70</td>
                     <td>9,201</td>
@@ -258,26 +274,18 @@
                     <td class=""></td>
                 </tr>
                 <tr>
-                    <td>25-01</td>
-                    <td>266.4</td>
-                    <td>$42.62</td>
+                    <td>25-01<br><small style="color:#666">Dec 28, 2024 – Jan 27, 2025</small></td>
+                    <td>387.0</td>
+                    <td>$61.92</td>
                     <td>8,661</td>
                     <td>$0.16</td>
                     <td class=""></td>
                 </tr>
                 <tr>
-                    <td>24-12</td>
-                    <td>474.3</td>
-                    <td>$75.89</td>
-                    <td>8,351</td>
-                    <td>$0.16</td>
-                    <td class=""></td>
-                </tr>
-                <tr>
-                    <td>24-11</td>
-                    <td>305.1</td>
-                    <td>$48.82</td>
-                    <td>7,424</td>
+                    <td>24-12<br><small style="color:#666">Nov 28 – Dec 27, 2024</small></td>
+                    <td>405.6</td>
+                    <td>$64.90</td>
+                    <td>8,175</td>
                     <td>$0.16</td>
                     <td class=""></td>
                 </tr>
@@ -285,15 +293,16 @@
         </table>
         
         <div class="footer">
-            <p><strong>Last Updated:</strong> November 03, 2026 at 08:58 UTC</p>
+            <p><strong>Last Updated:</strong> November 03, 2026 at 10:07 UTC</p>
             <p><strong>Data Source:</strong> ElectraFi API</p>
-            <p><strong>Y/Y:</strong> Year-over-year comparison of kWh usage vs same month in prior year</p>
+            <p><strong>Billing cycle:</strong> Each period runs from the 28th through the 27th of the following month (labeled by ending month).</p>
+            <p><strong>Y/Y:</strong> Year-over-year kWh vs the same billing period one year earlier</p>
         </div>
     </div>
     
     <script>
         const ctx = document.getElementById('kwhChart').getContext('2d');
-        const chartData = [{"date": "24-11", "kwh": 305.1, "cost": 48.82, "odo": 7424.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "24-12", "kwh": 474.3, "cost": 75.89, "odo": 8351.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-01", "kwh": 266.4, "cost": 42.62, "odo": 8661.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-02", "kwh": 298.1, "cost": 47.7, "odo": 9201.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-03", "kwh": 215.4, "cost": 34.46, "odo": 9486.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-04", "kwh": 195.7, "cost": 31.31, "odo": 9733.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-05", "kwh": 230.9, "cost": 36.94, "odo": 10241.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-06", "kwh": 265.7, "cost": 42.51, "odo": 10632.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-07", "kwh": 129.4, "cost": 20.7, "odo": 10805.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-08", "kwh": 310.6, "cost": 49.7, "odo": 11377.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-09", "kwh": 190.2, "cost": 30.43, "odo": 11676.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-10", "kwh": 346.1, "cost": 55.38, "odo": 12387.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-11", "kwh": 257.4, "cost": 41.18, "odo": 12668.0, "cost_per_kwh": 0.16, "yoy": -16.0}, {"date": "25-12", "kwh": 476.0, "cost": 76.16, "odo": 13626.0, "cost_per_kwh": 0.16, "yoy": 0.0}, {"date": "26-01", "kwh": 337.6, "cost": 54.02, "odo": 13930.0, "cost_per_kwh": 0.16, "yoy": 27.0}, {"date": "26-02", "kwh": 346.3, "cost": 55.41, "odo": 14314.0, "cost_per_kwh": 0.16, "yoy": 16.0}, {"date": "26-03", "kwh": 165.8, "cost": 26.53, "odo": 14553.0, "cost_per_kwh": 0.16, "yoy": -23.0}, {"date": "26-04", "kwh": 297.3, "cost": 47.57, "odo": 14910.0, "cost_per_kwh": 0.16, "yoy": 52.0}, {"date": "26-05", "kwh": 232.9, "cost": 37.26, "odo": 15168.0, "cost_per_kwh": 0.16, "yoy": 1.0}, {"date": "26-06", "kwh": 73.7, "cost": 11.79, "odo": 15267.0, "cost_per_kwh": 0.16, "yoy": -72.0}, {"date": "26-08", "kwh": 126.1, "cost": 20.18, "odo": 15980.0, "cost_per_kwh": 0.16, "yoy": -59.0}, {"date": "26-09", "kwh": 360.1, "cost": 57.62, "odo": 16570.0, "cost_per_kwh": 0.16, "yoy": 89.0}, {"date": "26-10", "kwh": 391.1, "cost": 62.58, "odo": 17212.0, "cost_per_kwh": 0.16, "yoy": 13.0}];
+        const chartData = [{"date": "24-12", "period_range": "Nov 28 \u2013 Dec 27, 2024", "kwh": 405.6, "cost": 64.9, "odo": 8175.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-01", "period_range": "Dec 28, 2024 \u2013 Jan 27, 2025", "kwh": 387.0, "cost": 61.92, "odo": 8661.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-02", "period_range": "Jan 28 \u2013 Feb 27, 2025", "kwh": 298.1, "cost": 47.7, "odo": 9201.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-03", "period_range": "Feb 28 \u2013 Mar 27, 2025", "kwh": 215.4, "cost": 34.46, "odo": 9486.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-04", "period_range": "Mar 28 \u2013 Apr 27, 2025", "kwh": 167.3, "cost": 26.77, "odo": 9703.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-05", "period_range": "Apr 28 \u2013 May 27, 2025", "kwh": 246.2, "cost": 39.39, "odo": 10239.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-06", "period_range": "May 28 \u2013 Jun 27, 2025", "kwh": 278.8, "cost": 44.61, "odo": 10632.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-07", "period_range": "Jun 28 \u2013 Jul 27, 2025", "kwh": 129.4, "cost": 20.7, "odo": 10805.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-08", "period_range": "Jul 28 \u2013 Aug 27, 2025", "kwh": 258.9, "cost": 41.42, "odo": 11296.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-09", "period_range": "Aug 28 \u2013 Sep 27, 2025", "kwh": 201.6, "cost": 32.26, "odo": 11611.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-10", "period_range": "Sep 28 \u2013 Oct 27, 2025", "kwh": 327.1, "cost": 52.34, "odo": 12312.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-11", "period_range": "Oct 28 \u2013 Nov 27, 2025", "kwh": 316.7, "cost": 50.67, "odo": 12668.0, "cost_per_kwh": 0.16, "yoy": null}, {"date": "25-12", "period_range": "Nov 28 \u2013 Dec 27, 2025", "kwh": 366.1, "cost": 58.58, "odo": 13136.0, "cost_per_kwh": 0.16, "yoy": -10.0}, {"date": "26-01", "period_range": "Dec 28, 2025 \u2013 Jan 27, 2026", "kwh": 399.6, "cost": 63.94, "odo": 13892.0, "cost_per_kwh": 0.16, "yoy": 3.0}, {"date": "26-02", "period_range": "Jan 28 \u2013 Feb 27, 2026", "kwh": 394.2, "cost": 63.07, "odo": 14314.0, "cost_per_kwh": 0.16, "yoy": 32.0}, {"date": "26-03", "period_range": "Feb 28 \u2013 Mar 27, 2026", "kwh": 165.8, "cost": 26.53, "odo": 14477.0, "cost_per_kwh": 0.16, "yoy": -23.0}, {"date": "26-04", "period_range": "Mar 28 \u2013 Apr 27, 2026", "kwh": 297.3, "cost": 47.57, "odo": 14910.0, "cost_per_kwh": 0.16, "yoy": 78.0}, {"date": "26-05", "period_range": "Apr 28 \u2013 May 27, 2026", "kwh": 232.9, "cost": 37.26, "odo": 15168.0, "cost_per_kwh": 0.16, "yoy": -5.0}, {"date": "26-06", "period_range": "May 28 \u2013 Jun 27, 2026", "kwh": 73.7, "cost": 11.79, "odo": 15267.0, "cost_per_kwh": 0.16, "yoy": -74.0}, {"date": "26-07", "period_range": "Jun 28 \u2013 Jul 27, 2026", "kwh": 137.6, "cost": 22.02, "odo": 15591.64, "cost_per_kwh": 0.16, "yoy": 6.0}, {"date": "26-08", "period_range": "Jul 28 \u2013 Aug 27, 2026", "kwh": 114.0, "cost": 18.24, "odo": 15940.0, "cost_per_kwh": 0.16, "yoy": -56.0}, {"date": "26-09", "period_range": "Aug 28 \u2013 Sep 27, 2026", "kwh": 344.1, "cost": 55.06, "odo": 16519.0, "cost_per_kwh": 0.16, "yoy": 71.0}, {"date": "26-10", "period_range": "Sep 28 \u2013 Oct 27, 2026", "kwh": 371.8, "cost": 59.49, "odo": 17163.0, "cost_per_kwh": 0.16, "yoy": 14.0}, {"date": "26-11", "period_range": "Oct 28 \u2013 Nov 27, 2026", "kwh": 47.4, "cost": 7.58, "odo": 17212.0, "cost_per_kwh": 0.16, "yoy": -85.0}];
 
         const monthLabels = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         const yearColors = {
@@ -339,7 +348,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'Monthly Home Charging (kWh)',
+                        text: 'Home Charging by Billing Period (kWh)',
                         font: {
                             size: 16,
                             weight: 'bold'
@@ -357,7 +366,7 @@
                     x: {
                         title: {
                             display: true,
-                            text: 'Month'
+                            text: 'Period ending month'
                         }
                     }
                 }
